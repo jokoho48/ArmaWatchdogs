@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "glob": "^7.1.6",
     "imagemin": "^7.0.1",
     "imagemin-pngquant": "^8.0.0",
     "pixelmatch": "^5.1.0"

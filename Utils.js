@@ -26,7 +26,7 @@ exports.getFolderName = function (date) {
     let year = date.getFullYear();
     let dir = `./${year}_${month}_${day}`;
     return dir;
-}
+};
 
 exports.moveFile = async function (file, dir2) {
     //include the fs, path modules
@@ -60,19 +60,14 @@ exports.compareImages = function (file1, file2, output) {
         diffColor: [255, 0, 0]
     });
     fs.writeFileSync(output, PNG.sync.write(diff));
-}
+};
 
 exports.compressImages = async function (file, outDir) {
-    imagemin([file], {
+    const files = await imagemin([file], {
         destination: outDir,
         plugins: [
             imageminPngquant() // TODO: make setting for Quality and general settings
         ]
-    })
-}
+    });
 
-const PIPE_PATH = "\\\\.\\pipe\\";
-
-exports.createPipeClient = function (pipeName) {
-
-}
+};
