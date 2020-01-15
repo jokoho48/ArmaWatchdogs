@@ -8,14 +8,6 @@ const {
 
 require("dotenv").config();
 
-let date_today = new Date();
-let date_yesterday = new Date();
-
-date_yesterday.setDate(date_yesterday.getDate() - 1); // make it Yesterday!
-
-let dir_today = Utils.getFolderName(date_today);
-let dir_yesterday = Utils.getFolderName(date_yesterday);
-
 let parameters = process.env.ARMA_STARTUP_PARAMETERS.split(';');
 parameters.push("-autotest=" + process.env.ARMA_AUTOTESTCONFIG);
 
@@ -33,7 +25,15 @@ arma.on('close', (code) => {
   console.log(
     `child process exited with code ${code}`
   );
-  // TODO: Logic for Comparing all Items and Moving them
+  let date_today = new Date();
+  let date_yesterday = new Date();
+
+  date_yesterday.setDate(date_yesterday.getDate() - 1); // make it Yesterday!
+
+  let dir_today = Utils.getFolderName(date_today);
+  let dir_yesterday = Utils.getFolderName(date_yesterday);
+
+
   if (!fs.existsSync(dir_today)) {
     fs.mkdirSync(dir_today);
   }
@@ -42,28 +42,29 @@ arma.on('close', (code) => {
     fs.mkdirSync(dir_today + "/diff");
   }
 
-  if (!fs.existsSync(dir_yesterday)) {
-    return;
-  }
   Utils.compressImages(
     process.env.SCREENSHOT_PATH + "/*.png",
     dir_today
-  ).then();
+  ).then(() => {
+    if (!fs.existsSync(dir_yesterday)) {
+      return;
+    }
 
-  glob(`${dir_today}/*.png`, null, function (
-    er,
-    files
-  ) {
-    // files is an array of filenames.
-    // If the `nonull` option is set, and nothing
-    // was found, then files is ["**/*.js"]
-    // er is an error object or null.
-    files.forEach(file => {
-      Utils.compareImages(
-        file,
-        file.replace(dir_today, dir_yesterday),
-        file.replace(dir_today, dir_today + "/diff")
-      );
+    glob(`${dir_today}/*.png`, null, function (
+      er,
+      files
+    ) {
+      // files is an array of filenames.
+      // If the `nonull` option is set, and nothing
+      // was found, then files is ["**/*.js"]
+      // er is an error object or null.
+      files.forEach(file => {
+        Utils.compareImages(
+          file,
+          file.replace(dir_today, dir_yesterday),
+          file.replace(dir_today, dir_today + "/diff")
+        );
+      });
     });
   });
 });

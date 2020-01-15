@@ -2,11 +2,19 @@ diag_log format ["Test Mission"];
 hideObject player;
 JK_TestData = [];
 
+/*
+ * 0: Position where the Camera will be Positioned
+ * 1: Position that the Camera will look at
+ * 2: The name of the Screenshot !!Importent this name must be without Spaces!!
+ * 3: Elevation of the Screenshot (Default: Position of object) This setting is Optinal and can be skipped the camera will use than the Elevation of the Position entered
+ */
+
+/*  Test for Random Position
 for "_i" from 0 to 40 do {
 	JK_TestData pushBack [[random 5000, random 5000, 50], [random 5000, random 5000, random 5], "TestName" + str _i];
 };
+*/
 
-JK_LastMission = true;
 
 JK_fnc_getPos = {
 	switch (typeName _this) do {

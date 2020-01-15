@@ -69,5 +69,4 @@ exports.compressImages = async function (file, outDir) {
             imageminPngquant() // TODO: make setting for Quality and general settings
         ]
     });
-
 };
