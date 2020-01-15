@@ -32,3 +32,5 @@ ARMA_AUTOTESTCONFIG=E:\Arma3\autotest\testConfig.cfg
 # The Path where the Frontend life so the files can get copyed over
 FRONTEND_PATH=.\frontend
 ```
+
+`Autotest.cfg` the Documentation can be found here: https://community.bistudio.com/wiki/Arma_3_Startup_Parameters#autotest
