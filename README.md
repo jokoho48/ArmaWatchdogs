@@ -54,3 +54,4 @@ JK_TestData pushBack [My_AwsomeCameraPosition, My_AwsomeCameraViewPoint, "TestNa
 ## TODO
 - Finish Frontend
 - Add ability to "Spawn" Objects/Vehicles/Units/Groups as Objects to make it more Dynamic
+- Add Settings for png Compression
