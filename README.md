@@ -12,7 +12,6 @@
  - Set Screenshot folder Maximum size in Profile to the amount you think you need https://community.bistudio.com/wiki/screenshot
  - Run `node ./index.js` to execute system
  
- 
  ## Settings
  `.env`
 ```
