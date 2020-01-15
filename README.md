@@ -9,7 +9,9 @@
  - create `.env` from `.env.Example` and Modify settings to your liking
  - Setup Test Missions with init.sqf and mission.sqm
  - Create Autotest.cfg file and enter wanted test missions
+ - Set Screenshot folder Maximum size in Profile to the amount you think you need https://community.bistudio.com/wiki/screenshot
  - Run `node ./index.js` to execute system
+ 
  
  ## Settings
  `.env`
@@ -34,3 +36,15 @@ FRONTEND_PATH=.\frontend
 ```
 
 `Autotest.cfg` the Documentation can be found here: https://community.bistudio.com/wiki/Arma_3_Startup_Parameters#autotest
+
+`init.sqf`
+Every Entry in JK_TestData is a Screenshot that gets shoot.
+```
+/*
+ * 0: Position where the Camera will be Positioned
+ * 1: Position that the Camera will look at
+ * 2: The name of the Screenshot !!Importent this name must be without Spaces!!
+ * 3: Elevation of the Screenshot (Default: Position of object) This setting is Optinal and can be skipped the camera will use than the Elevation of the Position entered
+ */
+JK_TestData pushBack [My_AwsomeCameraPosition, My_AwsomeCameraViewPoint, "TestName", 100];
+```
