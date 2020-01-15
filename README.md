@@ -48,3 +48,7 @@ Every Entry in JK_TestData is a Screenshot that gets shoot.
  */
 JK_TestData pushBack [My_AwsomeCameraPosition, My_AwsomeCameraViewPoint, "TestName", 100];
 ```
+
+## TODO
+- Finish Frontend
+- Add ability to "Spawn" Objects/Vehicles/Units/Groups as Objects to make it more Dynamic
