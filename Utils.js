@@ -55,7 +55,6 @@ exports.compareImages = function (file1, file2, output) {
     pixelmatch(img1.data, img2.data, diff.data, width, height, {
         threshold: process.env.DIFFTHRESHOLD,
         includeAA: false,
-        aaColor: [255, 255, 255],
         diffMask: true,
         diffColor: [255, 0, 0]
     });
